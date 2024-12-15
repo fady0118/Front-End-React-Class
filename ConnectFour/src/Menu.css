@@ -28,3 +28,6 @@
 .highlighted{
     border-color: brown;
 }
+.error{
+    color: brown;
+}

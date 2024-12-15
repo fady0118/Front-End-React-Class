@@ -35,13 +35,6 @@
   padding: 0;
   margin: 0;
 }
-/* .player1{
-  background-color: rgb(195, 4, 39);
-}
-
-.player2{
-  background-color: rgb(8, 193, 91);
-} */
 .winner{
   background-color: rgb(179, 192, 7);
 }
@@ -95,13 +88,6 @@
 .container h2{
   margin: 5px;
 }
-/* .player1_{
-  color: rgb(195, 4, 39);
-}
-.player2_{
-  color: rgb(10, 195, 93);
-} */
-
 .backToMenu{
   margin-top: 10px;
 }

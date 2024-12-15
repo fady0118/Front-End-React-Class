@@ -95,8 +95,8 @@ export default function Game({player1Name, player2Name, onGoBack, player1color, 
     const css = `
     .${player1Name}{background-color:${player1color};}
     .${player2Name}{background-color:${player2color};}
-    .${player1Name}_{color:${player1color};}
-    .${player2Name}_{color:${player2color};}
+    .${player1Name}_{color:${player1color};font-weight:500;}
+    .${player2Name}_{color:${player2color};font-weight:500;}
     `
     if(style.styleSheet){
       style.styleSheet.cssText = css;

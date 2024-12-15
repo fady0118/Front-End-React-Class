@@ -10,11 +10,51 @@ function Menu({onProceed, handlePlayer1, handlePlayer2, handlePlayer1color, hand
     const [player1, setPlayer1] = useState('');
     const [player2, setPlayer2] = useState('');
     // player colors
-    const [player1color, setplayer1color] = useState('');
-    const [player2color, setplayer2color] = useState('');
+    const [player1color, setplayer1color] = useState('#000000');
+    const [player2color, setplayer2color] = useState('#000000');
+    const [validationError, setValidationError] = useState('');
+    // validate color difference to prevent picking the same colors
+    // convert hex to rgb
+    function hexToRGB(hex){
+        let bigint = parseInt(hex.slice(1),16);
+        let r = (bigint >> 16) & 255;
+        let g = (bigint >> 8) & 255;
+        let b = bigint & 255;
+        return {r, g, b};
+    }
+    // calc color difference
+    function colorDifference(color1, color2){
+        return Math.sqrt(
+            Math.pow(color2.r - color1.r, 2) +
+            Math.pow(color2.g - color1.g, 2) +
+            Math.pow(color2.b - color1.b, 2)
+        );
+    }
+    // validate colors
+    const validateColors = ()=>{
+        if(player1color && player2color){
+            const rgb1 = hexToRGB(player1color);
+            const rgb2 = hexToRGB(player2color);
+
+            const difference = colorDifference(rgb1, rgb2);
+            const threshold = 110;
+            console.log(difference);
+
+            if(difference < threshold){
+                // alert('Please select distinct colors!');
+                setValidationError('Please select distinct colors!');
+                return false;
+            }
+            else{
+                setValidationError('');
+                return true;
+            }
+        }
+    }
+
 
     const handleProceed = ()=>{
-        if(player1 && player2 && player1color && player2color){
+        if(player1 && player2 && player1color && player2color && validateColors()){
             handlePlayer1(player1);
             handlePlayer2(player2);
             handlePlayer1color(player1color);
@@ -42,6 +82,7 @@ function Menu({onProceed, handlePlayer1, handlePlayer2, handlePlayer1color, hand
         }
     }
     return(
+        <>
         <div id="Menu">
             <label htmlFor="player1">Player1</label>
             <div>
@@ -55,6 +96,12 @@ function Menu({onProceed, handlePlayer1, handlePlayer2, handlePlayer1color, hand
             </div>
             <button onClick={handleProceed}>Proceed</button>
         </div>
+        <div>
+            {validationError && <p className="error">{validationError}</p>}
+        </div>     
+        </>
+        
+        
     );
 }
 export default Menu;
