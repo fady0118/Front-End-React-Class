@@ -1,0 +1,30 @@
+#Menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    border-radius: 15px;
+    padding: 20px;
+}
+#Menu div{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+#Menu input[type=text]{
+    width:200px;
+    padding: 2px;
+}
+.colorpicker{
+    width: 15%;
+    margin: 0 5px;
+    box-sizing: border-box;
+}
+#Menu button {
+    margin: 0 auto ;
+}
+
+.highlighted{
+    border-color: brown;
+}

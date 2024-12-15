@@ -1,0 +1,107 @@
+:root{
+  --tile-size:60px;
+  --vertical-gap-size:calc(var(--tile-size)*0.2);
+  --horizontal-gap-size:calc(var(--tile-size)*0.25);
+  --padding-size:calc(var(--tile-size)*0.15);
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.Board{
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: var(--vertical-gap-size);
+  border: 1px solid  rgba(216, 222, 242, 0.625);
+  background-color: rgb(16, 16, 18);
+  width: calc(var(--tile-size)*7 + var(--gap-size)*6 + var(--padding-size)*2);
+  height: calc(var(--tile-size)*6 + var(--gap-size)*5 + var(--padding-size)*2);
+  box-sizing: border-box;
+  padding: var(--padding-size);
+  margin-top: 10px;
+}
+.Row{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--horizontal-gap-size);
+}
+.cell{
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border-radius: 50%;
+  border: 1px solid rgba(216, 222, 242, 0.625);
+  padding: 0;
+  margin: 0;
+}
+/* .player1{
+  background-color: rgb(195, 4, 39);
+}
+
+.player2{
+  background-color: rgb(8, 193, 91);
+} */
+.winner{
+  background-color: rgb(179, 192, 7);
+}
+.player{
+  animation: playerdisc 0.8s;
+  border:3px solid rgba(255, 255, 255, 0.45);
+  position: relative;
+}
+.winner{
+  border:3px solid rgba(255, 255, 255, 0.45);
+  position: relative;
+  animation: win 1s linear;
+}
+.player::after, .winner::after{
+  content: '';
+  width: 30px;
+  height: 30px;
+  /* background-color: rgba(242, 216, 216, 0.35); */
+  background: linear-gradient(135deg, rgba(242, 216, 216, 0.7), rgba(242, 216, 216, 0.2));
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes playerdisc {
+  0% { transform: translateY(-250%); opacity: 0; } 
+  15% { opacity: 1; } 
+  30%{ transform: translateY(0); opacity: 1; }
+  65%{ transform: translateY(-50%); opacity: 1; }
+  100%{ transform: translateY(0); opacity: 1; }
+}
+@keyframes win {
+  0%{opacity: 1;}
+  25%{opacity: 0;}
+  50%{opacity: 1;}
+  75%{opacity: 0;}
+  100%{opacity: 1;}
+} 
+.container h2{
+  margin: 5px;
+}
+/* .player1_{
+  color: rgb(195, 4, 39);
+}
+.player2_{
+  color: rgb(10, 195, 93);
+} */
+
+.backToMenu{
+  margin-top: 10px;
+}
