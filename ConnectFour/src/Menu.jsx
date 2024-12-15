@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import './Menu.css'
 import App from './App.jsx'
 
-
-
 function Menu({onProceed, handlePlayer1, handlePlayer2, handlePlayer1color, handlePlayer2color}){
     // initialize states
     // player names
