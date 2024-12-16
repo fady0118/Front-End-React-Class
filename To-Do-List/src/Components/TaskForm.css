@@ -1,0 +1,7 @@
+.addtaskcontainer {
+    display: flex;
+    flex-direction: row;
+}
+.addtaskcontainer button {
+    margin-left: 2px;
+}
