@@ -45,17 +45,25 @@ function Board({board, currentPlayer, onBoardChange, OnPlayerChange, winningLine
         setTimeout(()=>{ // delay for the win animation
           alert(`${result.winner} wins!`);
           // reset game
-          onBoardChange(prevBoard => prevBoard.map(row => row.map(() => null)));
-          OnPlayerChange(player1Name);
-          setWinningLine(null);
+          resetGame();
         }, 1000);
         },800)
       }else{
         OnPlayerChange(currentPlayer === player1Name? player2Name : player1Name);
+        console.log(newBoard);
+        if(!newBoard.flat().includes(null)){
+          alert('Game over!');
+          resetGame();
+        }
       }
     
   }
 
+  const resetGame = () => {
+    onBoardChange(prevBoard => prevBoard.map(row => row.map(() => null)));
+    OnPlayerChange(player1Name);
+    setWinningLine(null);
+  };
   return(
     <div className='Board'>
       {board.map((row,rowIndex)=>(
