@@ -17,24 +17,28 @@ function App() {
   }, [tasks]);
 
   const addTask = (task) => {
-    setTasks(prevTasks=>[...prevTasks, task]);
-    console.log('adding task'+task)
+    const newTask = {
+      id: Date.now(),
+      text:task,
+    };
+    setTasks(prevTasks=>[...prevTasks, newTask]);
+    console.log('adding task'+newTask)
   };
 
-  const deleteTask = (index) => {
-    setTasks(prevTasks=>{
-      const newTasks = [...prevTasks];
-      newTasks.splice(index,1);
-      return newTasks;
-    });
-    console.log('deleting task at index: '+index)
+  const deleteTask = (id) => {
+    setTasks(prevTasks => prevTasks.filter(task => task.id !== id));
+    console.log('deleting task: '+ id)
   };
 
+  const deleteChecked = (checkedIds) => {
+    setTasks(prevTasks => prevTasks.filter((task) => !checkedIds.includes(task.id)));
+  }
+  
   return (
     <div className="App">
       <h1>To-Do List</h1>
         <TaskForm addTask={addTask} />
-        <TaskList tasks={tasks} deleteTask={deleteTask} />
+        <TaskList tasks={tasks} deleteTask={deleteTask} deleteChecked={deleteChecked}/>
     </div>
   );
 }

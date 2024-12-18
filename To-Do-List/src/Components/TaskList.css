@@ -1,7 +1,34 @@
-.listitem{
+ul.list {
+    padding: 0;
 
 }
-.listitem button{
-    padding: 0.4em 0.7em;
-    margin: 0 0.5em;
+
+.listitem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5em;
+    padding: 0;
+}
+
+.listitem div {
+    margin-right: 10px;
+}
+
+.checked {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.listitem button {
+    padding: 0.1rem 0.5rem;
+    font-size: 9px;
+}
+
+.display {
+    display: block;
+}
+
+.hide {
+    display: none;
 }

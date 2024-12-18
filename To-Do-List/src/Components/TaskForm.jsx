@@ -15,7 +15,7 @@ function TaskForm({addTask}){
     return(
         <>
             <div className="container">
-                <input type="text" name="addtask" value={task} id="addtask" onChange={(e)=>{setTask(e.target.value)}}/>
+                <input type="text" name="addtask" value={task} id="addtask" onChange={(e)=>{setTask(e.target.value)}} onKeyDown={(event)=>{if(event.key==='Enter'){handleSubmit()}}} />
                 <button onClick={handleSubmit}>Submit</button>
             </div>
         </>
