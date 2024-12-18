@@ -7,27 +7,51 @@
     border-radius: 15px;
     padding: 20px;
 }
-#Menu div{
+
+#Menu div {
     display: flex;
     flex-direction: row;
     margin-bottom: 15px;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
-#Menu input[type=text]{
-    width:200px;
+
+#Menu input[type=text] {
+    width: 200px;
     padding: 2px;
 }
-.colorpicker{
+
+.colorpicker {
     width: 15%;
     margin: 0 5px;
     box-sizing: border-box;
 }
+
 #Menu button {
-    margin: 0 auto ;
+    margin: 0 auto;
 }
 
-.highlighted{
+.highlighted {
     border-color: brown;
 }
-.error{
+
+.error {
     color: brown;
+}
+
+#menuTitle {
+    margin-bottom: 1rem;
+}
+
+#menuTitle h1,
+#menuTitle h4 {
+    margin: 0.5rem;
+}
+
+#menuContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

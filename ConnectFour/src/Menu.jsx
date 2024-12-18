@@ -81,22 +81,29 @@ function Menu({onProceed, handlePlayer1, handlePlayer2, handlePlayer1color, hand
     }
     return(
         <>
-        <div id="Menu">
-            <label htmlFor="player1">Player1</label>
-            <div>
-                <input type="text" name="playre1" id="player1" placeholder="Enter Player1 Name" onChange={(e)=>{setPlayer1(e.target.value)}} required/>
-                <input type="color" className="colorpicker" name="player1" id="player1color" onInput={(e)=>{setplayer1color(e.target.value)}} required/>
+        <div id="menuContainer">
+            <div id="menuTitle">
+                <h1>Connect Four</h1>
+                <h4>Enter Players' names & colors</h4>  
             </div>
-            <label htmlFor="player2">Player2</label>
-            <div>
-                <input type="text" name="playre2" id="player2" placeholder="Enter Player2 Name" onChange={(e)=>{setPlayer2(e.target.value)}} required/>
-                <input type="color" className="colorpicker" name="player2" id="player2color" onInput={(e)=>{setplayer2color(e.target.value)}} required/>
+            
+            <div id="Menu">
+                <label htmlFor="player1">Player1</label>
+                <div>
+                    <input type="text" name="playre1" id="player1" placeholder="Enter Player1 Name" onChange={(e)=>{setPlayer1(e.target.value)}} required/>
+                    <input type="color" className="colorpicker" name="player1" id="player1color" onInput={(e)=>{setplayer1color(e.target.value)}} required/>
+                </div>
+                <label htmlFor="player2">Player2</label>
+                <div>
+                    <input type="text" name="playre2" id="player2" placeholder="Enter Player2 Name" onChange={(e)=>{setPlayer2(e.target.value)}} required/>
+                    <input type="color" className="colorpicker" name="player2" id="player2color" onInput={(e)=>{setplayer2color(e.target.value)}} required/>
+                </div>
+                <button onClick={handleProceed}>Proceed</button>
             </div>
-            <button onClick={handleProceed}>Proceed</button>
-        </div>
-        <div>
-            {validationError && <p className="error">{validationError}</p>}
-        </div>     
+            <div>
+                {validationError && <p className="error">{validationError}</p>}
+            </div>  
+        </div>   
         </>
         
         
